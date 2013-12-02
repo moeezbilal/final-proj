@@ -1,0 +1,144 @@
+<html>
+
+
+    <link href="/stylesheets/2of8.css" rel="stylesheet">
+<link href="favicon.ico" rel="icon">
+
+<body style="background-color: #e6e6e6">
+	<div id="main_body">
+
+
+	<head>
+		
+		<title>
+			Build Your Profile | LinkedIn
+		</title>
+
+
+	</head>
+
+	
+
+		<div id="header">
+			<div id="logo"> </div>
+	
+		</div>	
+
+
+
+		<div id="inside_body">
+
+
+
+				<p id="head_in_blue"> Grow your network on LinkedIn <img src="../images/2of8.png" id="progress_bar"></p>
+
+
+
+				<div id="content">
+
+					<p style=" font-size: 13px; "> Get started by adding your email address. </p>
+
+
+				<!-- 		<label class="labels" id="label">Your email:</label>
+
+        			<div  style="margin-bottom:5px; ">
+        					
+        				<span id="lname" class="fields"></span>
+        
+        				<input class="input_field" type="text" value="" name="lname"></br>
+
+    				</div>
+
+
+                       	<label class="labels" id="label">Your Password</label>
+
+        			<div  style="margin-bottom:5px; ">
+        					
+        				<span id="lname" class="fields"></span>
+        
+        				<input class="input_field" type="password" value="" name="lname"></br>
+
+    				</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%= form_tag(controller: "experience", action: "step2", method: "post" ) do %>
+
+ <%= label_tag(:email, "Your email:",:class=>"labels") %>
+  <%= email_field_tag(:email) %><br/>
+   <%= label_tag(:password, "Your Password:",:class=>"labels") %>
+  <%= password_field_tag(:password) %><br/>
+  
+  <%= submit_tag("",:id=>"btn") %>
+
+
+  <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p></p>
+
+
+
+
+
+
+
+
+
+
+
+				<!-- <button type="button" id="btn" ></button> -->
+
+				<p id="copy_right2"> We will not store your password or email anyone without your permission. </p>
+
+
+				</div>
+
+<p>
+<a id="skip_step" href="javascript:void(0)"> Skip this step »</a>
+
+
+</p>
+
+		</div>
+
+
+
+
+
+		<div id="header">
+
+			<p id="copy_right">LinkedIn Corporation &copy; 2013 | Commercial use of this site without express authorization is prohibited.</p>
+
+
+		</div>
+	</div>
+</body>
+
+
+
+</html>

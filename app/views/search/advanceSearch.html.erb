@@ -1,0 +1,45 @@
+<% content_for :head do %>
+    <!-- Your View -->
+
+
+<div class="inside_body">
+
+<div class="results_count">
+<p>
+<b><%= @count %></b> results for<b> <%= @name %> </b>
+</p>
+</div>
+
+
+<table>
+  <% @users.each do |user| %>
+
+  <div  class="result">  
+
+	<div class="floatL userPicture">
+
+	</div>    
+  	<div class="floatL userName">
+    <%= user.email %>
+    </div>
+
+ 	 <%= button_to "Connect", {action: "connect", id:user.id, remote: true, :method => :post}, {class: 'connectButton'} %>
+
+
+
+
+</div>
+     
+	
+    </tr>
+    
+    
+
+  <% end %>
+</table>
+
+</div>
+
+
+
+<% end %>

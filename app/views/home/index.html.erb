@@ -29,7 +29,7 @@
 				</div>
 
 				<div id="scrn_1_input_fields">
-					<form>
+				<!-- 	<form>
 
 						<label >First Name:</label>
 						<input  type="text" value="" name=""></br>
@@ -43,18 +43,69 @@
 						<label >Password:</label>
 						<input  type="password" value="" name="">
 
-					</form>
+					</form> -->
+
+
+
+
+
+  <%= form_for(:user, :url => registration_path(:user)) do |f| %>
+
+   
+  
+      
+
+          <%= f.label :first_name %>
+     
+          <%= f.text_field :first_name %>
+
+
+          <%= f.label :last_name %>
+     
+          <%= f.text_field  :last_name %>
+
+
+
+        <%= f.label :email %>
+     
+          <%= f.email_field :email %>
+     
+       
+     
+        <%= f.label :password%>
+               <%= f.password_field :password %>
+     
+     
+        
+  
+      
+          <%= f.submit "", :id=> "scrn_1_btn" %>
+      
+  
+      <% end %>
+  
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 				</div>
 
 				<p id="scrn_1_more_6_characters">6 or more characters</p>
 
 
-				<input type="submit" value=""  id="scrn_1_btn">
 
-
-				<strong>
-					*
-				</strong>
 
 				<p id="more_6_characters2">Already on Linkedin?<a href="sign-in.html" title=""  class="hrefs"> Sign In</a> </p>
 

@@ -28,7 +28,7 @@ color:#CCC;
     box-shadow: 0 0 10px #333333;
     height: 42px;
 
-    width: 100%;
+    width: 101%;
 position: fixed;
 top: 0px;
 z-index: 2;
@@ -245,6 +245,7 @@ width: 470px;
     font-size: 100%;
 
     display: block;
+    margin-bottom: 5px;
 }
 
 #sing_in_content_body h4{
@@ -282,6 +283,34 @@ color:white;
 font-size: 12px;
 width:65px;
 }
+
+
+
+ #contact_btn{
+  border-width: 1px;
+border-style: solid;
+border-radius: 3px;
+cursor: pointer;
+line-height: 1.35;
+margin-left: 68%;
+overflow: visible;
+padding: 3px 10px 20px;
+text-decoration: none;
+border-color: rgb(4, 90, 139);
+background: -moz-linear-gradient(center top , rgb(115, 174, 201) 0px, rgb(115, 174, 201) 1px, rgb(51, 138, 176) 1px, rgb(5, 113, 166) 100%) repeat scroll 0px 0px transparent;
+color: white;
+font-size: 14px;
+margin-top: 15px;
+width: 56px;
+height: 5px;
+text-align: center;
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #69A0B6), color-stop(5%, #69A0B6), color-stop(5%, #277696), color-stop(100%, #04608E));
+
+}
+
+
+
+
 
 .signin
 {
@@ -706,7 +735,7 @@ background-image:-webkit-linear-gradient(top, #696969 0%,#3F3F3F 100%);
     box-shadow: 0 0 10px #333333;
     height: 42px;
 
-    width: 100%;
+    width: 101%;
 position: fixed;
 top: 0px;
 z-index: 2;
@@ -1109,6 +1138,7 @@ a
 }
 
 
+
 #hr_line
 {
 margin-top: 45px;
@@ -1128,7 +1158,7 @@ font-weight: normal;
 
 }
 */
-a:hover {text-decoration:underline;} 
+a:hover {text-decoration:none;} 
 /*#main_body
 {
 font-family: Arial,sans-serif;
@@ -1562,7 +1592,7 @@ text-align: top;
 
 #input_fields
 {
-    text-align:right;
+    
     margin-top:20px;
     width: 400px;
     margin-left:19px;
@@ -1708,12 +1738,12 @@ font-size:13px;
 #scrn_4_logo
 {
 
-    width: 97;
-    height: 31;
-    background-image: url("../images/logo-page3.png");
+    background-image: url(../images/logo-page3.png);
     margin-top: 16px;
     cursor:position;
     cursor:hand;    
+    height: 28px;
+    width: 100px;
     
     
 }
@@ -1729,3 +1759,15 @@ margin-left: 119px;
 position:relative;
 z-index: 2;
 }
+.sign-up-form
+{
+border:0px;
+
+}
+
+.edit_container
+{
+
+    margin-left: 25%;
+}
+

@@ -2,7 +2,8 @@ Bootstrap::Application.routes.draw do
 
   get "users/show"
 
-  resources :feedbacks
+  resources :feedbacks 
+  
 
   #devise_for :admin_users, ActiveAdmin::Devise.config
 
@@ -10,9 +11,9 @@ Bootstrap::Application.routes.draw do
 
   get "home/index"
 
-  get "sign_in/index"
+  # get "sign_in/index"
 
-  get "sign_in/changepassword"
+  # get "sign_in/changepassword"
 
   get "home/whatislinkedin"
 
@@ -22,14 +23,85 @@ Bootstrap::Application.routes.draw do
 
   get "signup/index"
 
-  devise_for :users
+get "experience/new"
+get "experience/imageloader"
+post "experience/imageloader2"
+
+post "experience/create"
+post "experience/step2"
+  # devise_for :users
+devise_for :users, :controllers => { :registrations => "registrations",:sessions=>"sessions" }
 
 
+# post ':controller(/:action(/:id(.:format)))'
+# get ':controller(/:action(/:id(.:format)))'
   #resources :users, :only => [:show]
   resources :users
 
   get 'users/:id/edit2' => 'users#edit'
 
+get "search/showFriends"
+
+
+  post "search/addComment"
+
+post "search/advanceSearch"
+
+get "search/advanceSearch"
+
+get"search/findAlumini"
+post"search/findAlumini"
+
+get "search/like"
+post "search/like"
+
+
+  post "search/addPost"
+  post "search/index"
+  get "search/index"
+post "search/search_results"
+get "search/search_results"
+
+
+
+
+
+
+
+
+
+
+post "search/connect"
+get "search/connect"
+
+post "search/friend_requests"
+get "search/friend_requests"
+
+post "search/add_friend"
+
+  get "welcome/index"
+
+  resources :friends
+
+  get "users/show"
+
+  resources :feedbacks
+resources :notification
+  #devise_for :admin_users, ActiveAdmin::Devise.config
+
+  
+
+  get "sign_in/index"
+
+  get "sign_in/changepassword"
+
+
+  get "home/test"
+
+  #resources :users, :only => [:show]
+
+
+  get 'users/:id' => 'users#search'
   # get "home/index"
 
   # The priority is based upon order of creation:
@@ -91,6 +163,5 @@ Bootstrap::Application.routes.draw do
   root :to => "home#index"
 #  match ':controller(/:action(/:id(.:format)))'
   match 'home/index' => 'home#index'
-  
 
 end

@@ -1,0 +1,193 @@
+.upload-gradient
+{
+padding:10px 15px 32px;
+margin:101px 10px 15px 0;
+border:1px solid #ccc;
+overflow:hidden;
+-moz-border-radius:5px;
+border-radius:5px;
+background-color:#f2f2f2;
+background:-moz-linear-gradient(100% 100% 90deg, #f2f2f2, #fff);
+background:-webkit-gradient(linear, left top, left bottom, from(#fff), to(#f2f2f2));
+background:-ms-linear-gradient(top, #fff 0%, #f2f2f2 100%);
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',
+ endColorstr='#f2f2f2',GradientType=0 );
+font-size:110%;_display:inline-block
+}
+chrome-v5-responsive #body
+ {
+    margin-top: 80px;
+    margin-bottom: 10px;
+}
+#body, .primary, .wrapper 
+{
+    clear: both;
+}
+#body, #footer 
+{
+    margin-left: auto;
+    margin-right: auto;
+    width: 980px;
+}
+body {
+    background-color: rgb(255, 255, 255);
+}
+html {
+    overflow-y: scroll;
+    margin: 0px;
+    padding: 0px;
+    border: 0px none;
+    outline: 0px none;
+}
+div.current-photo img {
+    border: 1px solid rgb(230, 230, 230);
+    padding: 2px;
+}
+div.current-photo .content {
+    background-position: left bottom;
+    margin-right: 0px;
+    padding: 0px;
+}
+div.current-photo 
+{
+    text-align: center;
+}
+
+.profile-photo #sidebar {
+    width: 18%;
+}
+.grid-b #sidebar {
+    float: left;
+}
+.profile-photo h2 {
+    font-size: 130%;
+    color: rgb(51, 51, 51);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.profile-photo .standard-form {
+    margin-bottom: 20px;
+}
+.standard-form.stacked {
+    margin: 0px 10px;
+}
+.standard-form.stacked p, .standard-form .fieldgroup p,
+ .standard-form fieldset.details p {
+    margin-left: 0px;
+}
+.standard-form p.instructions {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+.standard-form p 
+{
+    margin-top: 0.25em;
+    color: rgb(51, 51, 51);
+}
+.fieldgroup, .standard-form.stacked fieldset.details
+, .standard-form.stacked p, .standard-form .fieldgroup p
+, .standard-form fieldset.details p {
+    margin-left: 0px;
+}
+.profile-photo .fieldgroup {
+    margin: 0px 0px 12px;
+}
+.standard-form ul ul, .standard-form .fieldgroup {
+    padding: 0px;
+}
+.standard-form input, .standard-form select, .standard-form textarea {
+    font-size: 13px;
+}
+.os-win body, .os-win input, .os-win select, .os-win textarea, .os-win button {
+    font-family: Arial,sans-serif;
+}
+input[type="file"] {
+    ime-mode: disabled !important;
+}
+.standard-form.stacked ul ul, .standard-form.stacked .fieldgroup,
+ .standard-form.stacked fieldset.details, .standard-form.stacked p,
+  .standard-form .fieldgroup p, .standard-form fieldset.details p {
+    margin-left: 0px;
+}
+.standard-form p.actions {
+    background: url("/scds/common/u/img/bg/bg_grey_dotted_h-line_3x1.png") repeat-x scroll 0px 0px transparent;
+    padding-top: 20px;
+    margin-top: 20px;
+    font-size: 13px;
+}
+.standard-form p {
+    color: rgb(51, 51, 51);
+}
+.standard-form p.actions input {
+    font-size: inherit;
+    vertical-align: middle;
+}
+.btn-primary:hover, .btn-split-toggle-hover.btn-primary:hover {
+    background: -moz-linear-gradient(center top , rgb(105, 160, 182) 0px, rgb(105, 160, 182) 1px, rgb(39, 118, 150) 1px, rgb(4, 96, 142) 100%) repeat scroll 0% 0% transparent;
+ background:-webkit-gradient(linear, left top, left bottom, color-stop(0, #73aec9), color-stop(5%, #73aec9), color-stop(5%, #338ab0), color-stop(100%, #0571a6));   
+ border-color: rgb(0, 74, 115);
+
+}
+.btn-primary, .btn-menu-open.btn-primary, .btn-split.btn-primary:hover 
+{
+      background: -moz-linear-gradient(center top , rgb(105, 160, 182) 0px, rgb(105, 160, 182) 1px, rgb(39, 118, 150) 1px, rgb(4, 96, 142) 100%) repeat scroll 0% 0% transparent;
+ background:-webkit-gradient(linear, left top, left bottom, color-stop(0, #73aec9), color-stop(5%, #73aec9), color-stop(5%, #338ab0), color-stop(100%, #0571a6));   
+
+    color: rgb(255, 255, 255) !important;
+}
+.btn-primary, .btn-new-primary, .btn-secondary, .btn-new-secondary, .btn-tertiary, .btn-ternary, .btn-quaternary, .btn-action {
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    cursor: pointer;
+    line-height: 1.35;
+    margin: 0px;
+    overflow: visible;
+    padding: 3px 10px 2px;
+    text-decoration: none !important;
+    width: auto;
+}
+.standard-form p.actions .alternate {
+    line-height: 2;
+}
+a:active, a:hover {
+    outline: 0px none;
+}
+a:hover {
+    text-decoration: underline;
+}
+.profile-photo p.note {
+    margin: 5px 0px 0px;
+}
+.standard-form p.example, .standard-form p.tip, .standard-form p.note {
+    font-size: 11px;
+    color: rgb(102, 102, 102);
+}
+.profile-photo #content {
+    width: 81%;
+}
+.grid-b #content {
+    float: right;
+}
+body {
+    font-size: 62.5%;
+    line-height: 1.2;
+    color: rgb(0, 0, 0);
+    margin: 0px;
+    padding: 0px;
+    border: 0px none;
+    outline: 0px none;
+}
+.btn-primary, .btn-menu-open.btn-primary, .btn-split.btn-primary:hover {
+    background: -moz-linear-gradient(center top , #73AEC9 0px, #73AEC9 1px, #338AB0 1px, #0571A6 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border-color: #045A8B;
+    color: #FFFFFF !important;
+}
+div.current-photo img {
+    border-color: #C6C6C6;
+}
+a
+{
+color:#006699;
+text-decoration: none;
+}

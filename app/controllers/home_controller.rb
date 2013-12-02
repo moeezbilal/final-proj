@@ -20,6 +20,15 @@ class HomeController < ApplicationController
 
 
 
+def test
+
+   respond_to do |format|
+
+format.html{ render action: "secure"}
+end
+  
+end
+
 
 
 

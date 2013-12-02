@@ -1,0 +1,366 @@
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<!-- saved from url=(0036) -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Rails Bootstrap</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+<!--     <link href="/stylesheets/bootstrap.css" rel="stylesheet">
+    <link href="/stylesheets/docs.css" rel="stylesheet"> -->
+    <link href="/stylesheets/styling.css" rel="stylesheet">
+
+
+    <!-- Le javascript -->
+    <script src="/javascripts/jquery.min.js"></script>
+    <script src="/javascripts/jquery.tablesorter.min.js"></script>
+    <script src="/javascripts/bootstrap-dropdown.js"></script>
+    <script src="/javascripts/jquery.tablesorter.min.js"></script>
+    <script src="/javascripts/application.js"></script>
+
+
+    <!-- Le fav and touch icons -->
+    <link rel="apple-touch-icon" href="/images/ico/bootstrap-apple-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/ico/bootstrap-apple-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/ico/bootstrap-apple-114x114.png">
+
+</head>
+    <body>
+
+    <!-- Topbar ================================================== -->
+    <div id="header_back">
+    <div id="header">
+        <a href="screen1.html"><span id="logo"></span></a>
+
+      <ul id="header_link">
+        
+
+            <li >
+
+        <a href="screen3.html" value="">What is LinkedIn?</a>
+
+        </li>
+
+          
+
+            <li>
+      
+              <a href="Screen-4.html" value="">Join Today</a>
+
+          </li>
+      
+
+            <li>
+      
+      
+                <a href="sign-in.html" value="">Sign In</a>
+
+        </li>
+
+      </ul>
+      
+    </div>
+  </div>
+
+
+    <!-- Masthead (blueprinty thing)
+    ================================================== -->
+
+
+
+
+
+
+
+
+
+
+
+<div class="edit_container">
+	<div class="row">
+	
+	<h2>Edit <%= resource_name.to_s.humanize %></h2>
+		
+	<%= devise_error_messages! %>
+	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+
+		
+
+
+
+
+<div class="clearfix">
+				<%= f.label :first_name %>
+				<div class="input">
+					<%= f.text_field :first_name %>
+				</div>
+		</div>
+		
+			<div class="clearfix">
+				<%= f.label :last_name %>
+				<div class="input">
+					<%= f.text_field :last_name %>
+				</div>
+			</div>
+
+
+
+			<div class="clearfix">
+				<%= f.label :email %>
+				<div class="input">
+					<%= f.email_field :email %>
+				</div>
+			</div>
+
+
+
+
+			<div class="clearfix">			
+				<%= f.label :new_password, :for => "user_password" %>
+				<div class="input">
+					<%= f.password_field :password %>
+				</div>
+			</div>
+
+			<div class="clearfix">
+				<%= f.label :confirm, :for => "user_password_confirmation" %>
+				<div class="input">
+					<%= f.password_field :password_confirmation %>
+				</div>
+			</div>
+
+			<div class="clearfix">
+				<%= f.label :current_password,"current pswrd" %> 
+				<div class="input">
+					<%= f.password_field :current_password %>
+			  </div>
+			</div>
+<p> </p>
+			<div class="clearfix">
+				<div class="input">
+					<%= f.submit "Update", :id=> "pswd_btn"  %>&nbsp;&nbsp;
+					<%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>
+
+				</div>
+			</div>
+
+		
+
+	<% end %>
+
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+<!-- 
+footer here start -->
+
+
+
+<div id="long_footer">
+  
+       <div class="long_footer_bar upperbar_help" id="upperbar">
+           
+
+                
+
+                   <label id="help_height"><a  href="" >Help Center</a></label><em >|</em>
+
+       
+
+
+              
+                    <a href="" >About<em style="color:grey;"></a><em >|</em> 
+
+
+    
+                
+
+
+                    <a href="" >Press</a><em >|</em>
+
+
+    
+
+
+
+                    <a href="" >Blog</a><em >|</em>
+
+                
+
+
+                    <a href="" >Careers</a><em >|</em>
+
+        
+
+
+     <a href="" >Advertising</a><em >|</em>
+
+
+    
+                
+
+
+                    <a href="" >Talent Solutions</a><em >|</em>
+
+
+    
+
+
+
+                    <a href="" >Mobile</a><em >|</em>
+
+                
+
+
+                    <a href="" >Developers</a><em >|</em>
+
+                    <a href="" >Publishers</a><em >|</em>
+
+
+    
+
+
+
+                    <a  class="lang" href="">Language</a><em >|</em>
+
+
+                    <a href="" >SlideShare</a>
+
+</div>  
+
+
+
+
+
+         <div class="long_footer_bar" id="upperbar">
+           
+
+                
+
+                    <a href="" >LinkedIn Updates</a><em >|</em>
+
+                
+
+
+              
+                    <a href="" >LinkedIn Influencers</a><em >|</em>
+
+
+    
+                
+
+
+                    <a href="" >LinkedIn Jobs</a><em >|</em>
+
+
+    
+
+
+
+                    <a href="" >Jobs Directory</a><em >|</em>
+
+                
+
+
+                    <a href="" >Company Directory</a><em >|</em>
+
+        
+ <a href="" >Group Directory</a><em >|</em>
+
+     <a href="" >Title Directory</a>
+
+
+    
+                
+
+
+                   
+
+</div>  
+
+
+
+
+
+
+
+
+        
+<div class="long_footer_bar">
+      <a id="long_footer_pic" ref="" > <span >LinkedIn Corporation</span>&copy; 2013</a><em >|</em>
+            <p id="long_footer_pic_text"> &copy; 2013</p>
+
+        
+
+          <a href="userag.html" >User Agreement</a><em >|</em>
+
+        
+
+
+              
+          <a href="" >Privacy Policy</a><em >|</em>
+
+
+  
+        
+
+
+          <a href="" >Community Guidelines</a><em >|</em>
+
+
+  
+
+
+
+          <a href="" >Cookie Policy</a><em >|</em>
+
+        
+
+
+          <a href="" >Copyright Policy</a>
+
+    
+
+
+  
+
+</div>
+</div>
+</body></html>
+

@@ -1,7 +1,12 @@
 class User < ActiveRecord::Base
   has_many :authorizations
-  has_one :expereince
+  has_one :experience
+  has_many :posts
+  has_many :friends
+  has_many :notifications
+  has_one  :profile
   has_many :user_roles, :through => :authorizations
+
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable, :registerable,
@@ -9,7 +14,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :authentication_token  
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :authentication_token ,:first_name,:last_name,:image
+  mount_uploader :image , ImageUploader
   alias_attribute :roles, :user_roles
 
   # Ensure the there is a auth token for all users, authorization will still be enforced

@@ -1,0 +1,33 @@
+  <div id="indexSearch">
+
+  <div id="postField">
+
+
+  <div style="clear:both">
+
+
+  <table>
+
+
+    <% @user.each do |user| %>
+
+    <div  class="addition" >  
+
+      <div class="floatL userPicture"></div>    
+
+      <div class=" userName"><%= user.first_name %> <%= user.last_name %></div> 
+
+    </div>
+
+   </tr>
+      <% end %>
+
+
+
+
+
+  </table>
+
+    
+  </div>
+

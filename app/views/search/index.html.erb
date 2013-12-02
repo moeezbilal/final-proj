@@ -1,0 +1,274 @@
+  <div id="indexSearch">
+
+  <div id="postField">
+
+  <div class="userPicture floatL">
+
+  </div>
+  <link href="/stylesheets/liveurl.css" rel="stylesheet">
+
+
+ <%= form_for :post,:url=>{:action=>"addPost"} ,:html=>{:multipart=>true}  do |f| %>
+
+     <%= text_field_tag(:postText ,nil,{ :autocomplete => :off,id:"status",class:"statusField", :placeholder => "Share an update...", }) %>
+     
+
+
+
+
+
+
+
+
+        
+
+ <div id="attach">
+
+    <%=f.file_field :image %>
+    </div>
+    
+    <div style="clear:both">
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="liveurl-loader"></div>
+        
+        <div class="liveurl">
+            <div class="close" title="Entfernen"></div>
+            <div class="inner">
+                <div class="image"> </div>
+                <div class="details">
+                    <div class="info">
+                        <div class="title"> </div>
+                        <div class="description"> </div> 
+                        <div class="url"> </div>
+                    </div>
+
+                    <div class="thumbnail">
+                        <div class="pictures">
+                            <div class="controls">
+                                <div class="prev button inactive"></div>
+                                <div class="next button inactive"></div>
+                                <div class="count">
+                                    <span class="current">0</span><span> von </span><span class="max">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video"></div>
+                </div>
+
+            </div>
+        </div>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" > </script>
+
+      
+  <%= javascript_include_tag "jquery.liveurl.js" %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+    <%= select_tag :share, options_for_select([ ['Public', 2], ['Connections', 3]]), 
+    {:class =>"statusSelect"} %>
+
+    <%= submit_tag("Share" , class: "shareButton" ) %>
+  <% end %>
+
+  
+  </div>
+
+  <div style="">
+
+
+  <% if(@posts.present? ) %>
+
+  <table>
+    <% @posts.each do |post| %>
+
+    <div  class="addition" >  
+
+  	<div class="floatL userPicture">
+
+  	</div>    
+    	<div class="floatL userName">
+      <%= post.userid %>
+      <br>
+      <p class="postedText">
+  		<%= post.text %>
+  	</p></br>
+    <%if post.image.size >0%>
+<%= image_tag post.image_url(:thumb) %>
+
+<%end%>
+  	</div>
+  <div style="clear:both">
+  	<div style=" padding-left: 55px; ">
+  	
+  	<ul id="test">
+              
+  <% @not_liked=1%> 
+
+  <% post.likes.each do |like|  %>
+  <% @not_liked=0 if like.userid==current_user.id %>   <!-- current user id is used as 1 -->
+  <% end %>
+
+        <p >
+                
+  <%= post.likes.size if post.likes.size > 0 %> 
+
+
+
+
+  
+
+  
+
+
+<% if @not_liked ==0 %>
+<a href="#" value="" id="comment" class="comment_like">Like</a>
+<%else %>
+<%= link_to_if(@not_liked , "Like", {action: "like", id:post.id},{:class=>"comment_like"}) %>
+
+<%end%>
+
+ 
+              
+      			<a href="#" value="" id="comment" class="comment_like" >Comment</a>
+               </p>
+
+       </ul>
+      
+  	
+  </div>
+
+               <div class="commentBox">
+
+  <div class="comments">
+
+
+  <% post.comments.each do |comment|  %> 
+  <%= comment.commenterid %>
+  <%= comment.comment %>
+  <br>
+
+  <% end %>
+
+  </div>
+
+
+
+
+  <%= form_tag({controller: "search", action: "addComment"}, method: "post") do %>
+
+    <%= text_field_tag(:commentText ,nil,{ class:"commentField", :placeholder => "Enter comment here...", }) %>
+    <%= hidden_field_tag(:parent_id,  post.id ) %>
+
+    <%= submit_tag("Comment" , class: "commentButton" , :name => "post[#{post.id}]" ) %>
+  <% end %>
+
+
+   </div>
+
+
+  	<div style="clear:both">
+
+
+  </div>
+
+   </tr>
+      
+      
+
+    <% end %>
+  </table>
+
+    <% end %>
+  </div>

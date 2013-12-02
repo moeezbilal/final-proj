@@ -8,6 +8,7 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 module Bootstrap
   class Application < Rails::Application
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -38,8 +39,9 @@ module Bootstrap
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
-
+    config.paths['app/views'] << "app/views/devise"
     config.assets.enabled = true
+
   end
 end
 

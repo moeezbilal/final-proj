@@ -1,0 +1,26 @@
+
+
+<div id="inside_body">
+<p>
+<pre>
+<b><%= @count %></b> Requests Pending
+</pre>
+</p>
+
+
+
+<table>
+  <% @requests.each do |request| %>
+    <tr>
+     <td><%= request.sender %></td>
+     <td><%= button_to "Accept" , :id => request.sender  ,:action => 'add_friend' %> </td>
+    </tr>
+    
+    
+
+  <% end %>
+</table>
+
+
+
+</div>

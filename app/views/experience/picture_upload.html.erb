@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!-- saved from url=(0083)file:///C:/Users/Moeex/Pictures/My%20Profile%20%20Add%20Photo%20%20%20LinkedIn1.htm -->
+<html lang="en" class="os-win"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>My Profile: Add Photo | LinkedIn</title>
+
+    <link href="/stylesheets/upload-photo.css" rel="stylesheet">
+</head>
+      
+<body class="en member v2  chrome-v5 chrome-v5-responsive sticky-bg js  js " id="pagekey-nprofile-edit-picture-info">
+
+ <div id="body" class="" role="main">
+<div class="wrapper hp-nus-wrapper">
+  <div id="main" class="grid-b profile-photo upload-gradient">
+		<div id="sidebar">
+      <div class="current-photo">
+        <div class="title" >
+          <h3>Current Photo</h3>
+        </div>
+        <div class="content">      
+<%if current_user.image.length !=0 %>
+<%= image_tag current_user.image_url(:thumb).to_s%>
+<%else%>
+<%= image_tag src="../images/temp.png"%>
+<%end%>
+
+        </div>
+      </div>      
+    </div>
+    <div id="content">
+     <!--  <form class="standard-form stacked simple" name="uploadMemberPicture" action="http://www.linkedin.com/mupld/upload" method="post" enctype="multipart/form-data" accept-charset="UTF-8" target="picture-upload-frame">
+         <input name="upload_info" type="hidden" value="">
+         <input name="upload_info_with_js" type="hidden" value="">
+         <input name="callback" type="hidden" value="">
+        <h2>Upload a Photo</h2>
+        <p class="instructions">You can upload a JPG, GIF or PNG file (File size limit is 4 MB).</p>
+        <div class="fieldgroup">
+            <input type="file" name="file" id="picture-file" size="30">
+        </div>
+        <p class="actions">
+            <input class="btn-primary" id="bt-upload-submit" type="submit" value="Upload Photo"> 
+              <span class="alternate">or 
+                <a href="http://www.linkedin.com/home?goback=" class="cancel">Cancel</a>
+              </span>
+        </p>
+        <p class="note">By clicking “Upload Photo”, you certify that you have the right to distribute this photo and that it does not violate the <a href="http://www.linkedin.com/static?key=user_agreement">User Agreement</a>.</p>
+      </form> -->
+
+
+
+
+
+
+
+ <%= form_for :user,:url=>{:action=>"imageloader2"} ,:html=>{:multipart=>true}  do |f| %>
+
+              <h2>Upload a Photo</h2>
+
+             <p class="instructions">You can upload a JPG, GIF or PNG file (File size limit is 4 MB).</p>
+
+     
+      <p>
+     <%= f.file_field :image %>
+      </p>  
+  
+      
+
+          <%= f.submit "Upload photo", :class=> "btn-primary" %>
+       <span class="alternate">or 
+                <a href="http://www.linkedin.com/home?goback=" class="cancel">Cancel</a>
+
+
+
+   <p class="note">By clicking “Upload Photo”, you certify that you have the right to distribute this photo and that it does not violate the <a href="http://www.linkedin.com/static?key=user_agreement">User Agreement</a>.</p>
+      <% end %>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+   </div>
+</div>
+</body>
+</html>

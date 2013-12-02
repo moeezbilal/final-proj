@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131111183020) do
+ActiveRecord::Schema.define(:version => 20131201073119) do
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
@@ -20,27 +20,27 @@ ActiveRecord::Schema.define(:version => 20131111183020) do
     t.datetime "updated_at"
   end
 
-  create_table "contacts", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "friend_id"
+  create_table "comments", :force => true do |t|
+    t.integer  "post_id"
+    t.string   "commenterid"
+    t.string   "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "contacts", ["user_id"], :name => "index_contacts_on_user_id"
-
-  create_table "expereinces", :force => true do |t|
+  create_table "experiences", :force => true do |t|
     t.string   "job_title"
-    t.string   "compnay_name"
+    t.string   "company_name"
     t.string   "zip_code"
-    t.string   "coutry"
-    t.string   "status"
+    t.string   "country"
+    t.integer  "status"
+    t.string   "school"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "expereinces", ["user_id"], :name => "index_expereinces_on_user_id"
+  add_index "experiences", ["user_id"], :name => "index_experiences_on_user_id"
 
   create_table "feedbacks", :force => true do |t|
     t.string   "title"
@@ -49,6 +49,39 @@ ActiveRecord::Schema.define(:version => 20131111183020) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "friends", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "friend"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "likes", :force => true do |t|
+    t.integer  "post_id"
+    t.integer  "userid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notifications", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "sender"
+    t.string   "receiver"
+    t.boolean  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "posts", :force => true do |t|
+    t.string   "userid"
+    t.string   "text"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image"
   end
 
   create_table "user_roles", :force => true do |t|
@@ -74,6 +107,7 @@ ActiveRecord::Schema.define(:version => 20131111183020) do
     t.string   "authentication_token"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "image"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
