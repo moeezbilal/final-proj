@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :friends
   has_many :notifications
-  has_one  :profile
+  has_many :comments
   has_many :user_roles, :through => :authorizations
 
 

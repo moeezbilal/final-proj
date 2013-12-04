@@ -1,4 +1,26 @@
-
+.add1 img
+{
+    /*background:url("../images/ads.png");
+    */margin-left: 876px;
+    margin-top: 1px;
+    position: relative;
+    width:332px;
+}
+.add2 img
+{
+    /*background:url("../images/ads1.png");
+    */margin-left: 877px;
+    margin-top: 1px;
+    position: relative;
+    width:330px;
+}
+.people img
+{
+    margin-left: 875px;
+margin-top: 115px;
+width: 332px;
+position: relative;
+}
 .result
 {
     border-top: 1px solid #ccc;
@@ -319,24 +341,34 @@ text-align: left;
     }
 
 
-    #indexSearch
-    {
-
   
-
-
-
+#indexSearch
+    {
+margin-top: 125px;
 background-color: #F3F3F3;
     border: 1px solid #CCCCCC;
     font-weight: normal;
     letter-spacing: -1px;
     margin-left: 25%;
-    margin-top: 125px;
     min-height: 500px;
     padding-left: 0;
     width: 660px;
 
     }
+    #indexSearch1
+    {
+margin-top: -1075px;
+background-color: #F3F3F3;
+    border: 1px solid #CCCCCC;
+    font-weight: normal;
+    letter-spacing: -1px;
+    margin-left: 15%;
+    min-height: 500px;
+    padding-left: 0;
+    width: 660px;
+
+    }
+
 
     .shareButton
     {
@@ -451,11 +483,12 @@ width: 74px;
 
     .comments
     {
-
-
+background-color:rgb(243, 243, 243);
+padding-bottom: 5px;
         width: 530px;
-        border: 1px solid #ccc;
+       
         margin-left: 70px;
+
 
     }
 
@@ -906,7 +939,7 @@ color: #D7D7D7;
 
 #black_header a:hover{
 
-color: #3399CC;
+/*color: #3399CC;*/
 
     text-decoration: none;
     
@@ -932,4 +965,51 @@ width: 100%;
 .comment_like:hover{
     font-size: 15px;
 text-decoration: none;
+}
+
+.alumni-work
+{
+
+    margin-bottom: -5px;
+}
+
+
+
+
+ #user_comment{
+        /*background: url("user.png") no-repeat scroll left center transparent;*/
+         background: url("../images/user_home.png") no-repeat scroll left center transparent;
+         
+
+padding: 2px;
+    }
+
+    .comment_data
+    {
+adding-left: 10px;
+font-size: 16px;
+
+    }
+
+    .comment_name
+    {
+          color: rgb(0,119,181);
+    font-size: 18px;
+
+    }
+.atch 
+{
+    opacity:0;
+    cursor: pointer;
+    cursor: hand;
+}
+#contact_title
+{
+        background-color: black;
+    height: 29px;
+    width: 126px;
+    text-align: center;
+    padding-top: 11px;
+    color: white;
+
 }

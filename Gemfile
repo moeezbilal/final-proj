@@ -2,7 +2,12 @@
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 ruby '1.9.3'
-gem  'mysql2'
+group :development, :test do
+  gem 'mysql2'
+end
+group :production do
+  gem 'pg'
+end
 
 # gem 'rails', '3.2.14'
 # gem install activerecord-mysql2-adapter
@@ -39,4 +44,11 @@ gem "cancan"
 gem "jquery-rails"
 #gem "rspec-rails", ">= 2.0.1", :group => [:development, :test]
 #gem "capybara", :group => [:development, :test]
+gem'activeadmin'
+gem 'sass-rails', "  ~> 3.1.0"
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~> 3.1.0'
+gem 'therubyracer'
+gem 'execjs'
+gem 'rails_12factor', group: :production
 gem 'twitter-bootstrap-rails', :git => 'https://github.com/seyhunak/twitter-bootstrap-rails.git'

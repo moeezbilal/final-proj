@@ -1,10 +1,25 @@
-  <div id="indexSearch">
+  <<div class="people">
+     <img src="../images/people.png  "></img> 
+  </div>
+    <div class="add1">
+    <img src="../images/ads.png"></img> 
+  </div>
+  <div class="add2">
+     <img src="../images/ads1.png  "></img> 
+  </div>
+
+  <div id="indexSearch1">
+    <!-- <div id="newsfeed"> -->
 
   <div id="postField">
 
+<%if current_user.image.length !=0 %>
+<%= image_tag current_user.image_url(:postpic).to_s,:class=>"userPicture floatL"%>
+<%else%>
   <div class="userPicture floatL">
-
   </div>
+<%end%>
+
   <link href="/stylesheets/liveurl.css" rel="stylesheet">
 
 
@@ -16,15 +31,11 @@
 
 
 
-
-
-
-
         
 
  <div id="attach">
 
-    <%=f.file_field :image %>
+    <%=f.file_field :image ,:class=>"atch" %>
     </div>
     
     <div style="clear:both">
@@ -33,9 +44,7 @@
 
 
 
-
-
-
+<input id="trial3" type="hidden" name="weburl" value= "" method="post">
 
 
 
@@ -48,7 +57,9 @@
                 <div class="image"> </div>
                 <div class="details">
                     <div class="info">
-                        <div class="title"> </div>
+                        <div id="urltitle"class="title"> 
+
+                        </div>
                         <div class="description"> </div> 
                         <div class="url"> </div>
                     </div>
@@ -75,86 +86,6 @@
       
   <%= javascript_include_tag "jquery.liveurl.js" %>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
    
     <%= select_tag :share, options_for_select([ ['Public', 2], ['Connections', 3]]), 
     {:class =>"statusSelect"} %>
@@ -175,17 +106,35 @@
 
     <div  class="addition" >  
 
-  	<div class="floatL userPicture">
 
-  	</div>    
+<%if post.user.image.length !=0 %>
+<%= image_tag post.user.image_url(:postpic).to_s , :class=>"floatL userPicture"%>
+<%else%>
+  <div class="floatL userPicture"></div>  
+<%end%>
+
+  	  
     	<div class="floatL userName">
-      <%= post.userid %>
+ <%= post.user.first_name %> <%= post.user.last_name %>   <!--  #change -->
       <br>
-      <p class="postedText">
+      <p class="postedText" id="status">
   		<%= post.text %>
+
+
+
+<% if post.url.size >0%>
+<a class="embedly-card" href=<%=post.url%>> </a>
+<script>!function(a){var b="embedly-platform",c="script";if(!a.getElementById(b)){var d=a.createElement(c);d.id=b,d.src=("https:"===document.location.protocol?"https":"http")+"://cdn.embedly.com/widgets/platform.js";var e=document.getElementsByTagName(c)[0];e.parentNode.insertBefore(d,e)}}(document);</script>
+
+<%end%>
+
+
+
+
+
   	</p></br>
     <%if post.image.size >0%>
-<%= image_tag post.image_url(:thumb) %>
+<%= image_tag post.image_url(:postattachpic) %>
 
 <%end%>
   	</div>
@@ -222,6 +171,10 @@
  
               
       			<a href="#" value="" id="comment" class="comment_like" >Comment</a>
+              <%= link_to("Share", {action: "share_post", id:post.id},{:class=>"comment_like"}) %>
+
+
+            <%= ((post.created_at - Time.now).to_i.abs)/60%><a href="#" value="" id="comment" class="comment_like" > min ago</a>
                </p>
 
        </ul>
@@ -231,17 +184,28 @@
 
                <div class="commentBox">
 
-  <div class="comments">
+ 
 
 
   <% post.comments.each do |comment|  %> 
-  <%= comment.commenterid %>
+   <div class="comments">
+   <%if comment.user.image.length !=0 %>
+<%= image_tag comment.user.image_url(:commentpic).to_s%>
+<%else%>
+ <span id="user_comment"></span>
+<%end%>
+<span class="comment_name">
+ <%=  comment.user.first_name %> <%= comment.user.last_name %>  <!-- change -->
+</span>
+<span class="comment_data">
   <%= comment.comment %>
-  <br>
+</span>
 
+  <br>
+</div>
   <% end %>
 
-  </div>
+  
 
 
 
@@ -272,3 +236,6 @@
 
     <% end %>
   </div>
+
+  
+  

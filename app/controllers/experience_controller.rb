@@ -34,7 +34,7 @@ def imageloader2
 current_user.image=@e.image
 current_user.save!
 
-render "../experience/picture_upload.html", :layout => 'application'
+redirect_to "/search/index"
 end
 
 

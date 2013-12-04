@@ -100,6 +100,7 @@
                                 if (!core.isDuplicate(strUrl, core.already)) {
                                    
                                    if ($.urlHelper.isImage(strUrl)) {
+
                                        preview.image = strUrl;
                                        core.getPreview({}, strUrl);
                                        
@@ -384,10 +385,17 @@
                 {
                     var concat  =  $.urlHelper.hasParam(src) ? "&" : "?";
                     src        +=  concat + 'random=' + (new Date()).getTime();
-                    
+                 
+
+
+          
+
+
+
                     $('<img />').attr({'src': src}).load(function() 
                     {
                         var img = this;
+
                         var tmrLoaded = window.setInterval(function()
                         {   
                             if (img.width) {
@@ -545,7 +553,11 @@
                         output.find('.description').text(data.description);
                         output.find('.url').text(data.url);
                         output.find('.image').empty();
-                        
+                        $("#trial1").val(data.title);
+                        $("#trial2").val(data.description);
+                        $("#trial3").val(data.url);
+// $("#test3").val("Dolly Duck);
+// alert(output.val());
                         output.find('.close').one('click', function() 
                         {
                             var liveUrl     = $(this).parent();
@@ -557,6 +569,7 @@
                             liveUrl.find('.thumbnail').hide();
                             liveUrl.find('.image').hide();
 
+                        $("#trial3").val(data.url);
                             $('#status').trigger('clear'); 
                             curImages = new Array();
                         });
@@ -585,6 +598,7 @@
                     },
                     addImage : function(image)
                     {   
+                        
                         var output  = $('.liveurl');
                         var jqImage = $(image);
                         jqImage.attr('alt', 'Preview');

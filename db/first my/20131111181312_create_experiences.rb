@@ -7,10 +7,10 @@ class CreateExperiences < ActiveRecord::Migration
       t.string :country
       t.integer :status
       t.string :school
-      t.references :user
+      t.integer :user_id
 
       t.timestamps
     end
-    add_index :experiences, :user_id
+    # add_index :experiences, :user_id
   end
 end

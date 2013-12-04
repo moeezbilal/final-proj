@@ -1,4 +1,5 @@
   <div id="indexSearch">
+    <div id="contact_title">Contacts</div>
 
   <div id="postField">
 
@@ -13,9 +14,42 @@
 
     <div  class="addition" >  
 
-      <div class="floatL userPicture"></div>    
+   <%if user.image.length !=0 %>
+<%= image_tag user.image_url(:postpic).to_s , :class=>"floatL userPicture"%>
+<%else%>
+  <div class="floatL userPicture"></div>  
+<%end%> 
 
+ <!--  changed part -->
+      
       <div class=" userName"><%= user.first_name %> <%= user.last_name %></div> 
+
+      
+
+      <% if user.experience %>
+      
+      <% if user.experience.status===1 %>
+      <div class="floatL userName"><%= user.experience.school %>&nbsp;&nbsp;&nbsp; </div>
+
+      <%else%>
+      <div class="floatL userName"><%= user.experience.company_name %>&nbsp;&nbsp;&nbsp; </div>
+      <% end %>
+
+
+
+      <div class=" userName"><%= user.experience.country %> </div>
+      
+
+      
+      <% end %>
+
+      
+
+
+<!--  changed part -->
+
+
+
 
     </div>
 

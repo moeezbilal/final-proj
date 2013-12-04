@@ -2,7 +2,7 @@
 <!-- saved from url=(0036) -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Rails Bootstrap</title>
+    <title>LinkedIn</title>
     <meta name="description" content="">
     <meta name="author" content="">
 <!--                  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -15,6 +15,7 @@
     <!-- Le styles -->
 <!--     <link href="/stylesheets/bootstrap.css" rel="stylesheet">
     <link href="/stylesheets/docs.css" rel="stylesheet"> -->
+    <link rel="icon" href="/images/favicon.ico" type="image/ico" />
     <link href="/stylesheets/search.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/stylesheets/1.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/2.css">
@@ -46,8 +47,8 @@
     <div class="make_header_fix">
     <div id="header_back">
     <div id="header">
-       <a href="../screen1/screen1.html"><span id="logo"></span></a>
-       <a href="../screen1/screen1.html"><span id="option"></span></a>
+       <a href="/search/index"><span id="logo"></span></a>
+       <a href="/search/index"><span id="option"></span></a>
 
             <div   class="search_input"> 
 
@@ -84,13 +85,19 @@
 
 
 
-                    <a href="#"><span id="user"></span></a>
+                    <a href="/users/sign_out">
+
+ <%if current_user.image.length !=0 %>
+<%= image_tag current_user.image_url(:commentpic).to_s,:id=>"user"%>
+<%else%>
+ <span id="user"></span>
+<%end%>
+</a>
+                       
                 
                     <a href="friend_requests"><span id="add">
-                        <% @user.each do |user| %>
-                            <% if user.notifications.size>0 %>
-                            <span id="notify"><%= user.notifications.size %></span>
-                            <%end%>
+                         <% if @notifications && @notifications.size>0 %>
+                            <span id="notify"><%= @notifications.size %></span>
                             <%end%>
                         
 
@@ -133,8 +140,9 @@
                     <a href="#" value="" id="aaa">Profile</a>
 
                      <ul class="dropdown-menu 1st" id="black-background" role="menu" aria-labelledby="dropdownMenu">
-                    <li><a tabindex="-1" href="#">Edit Profile</a></li>
+                    <li><a tabindex="-1" href="/users/edit">Edit Profile</a></li>
                     <li><a tabindex="-1" href="#">Who's Viewed your profile</a></li>
+
                     </ul>
 
             </li>
@@ -147,6 +155,7 @@
                     <ul class="dropdown-menu 2nd" id="black-background" role="menu" aria-labelledby="dropdownMenu" >
                     <li><a tabindex="-1" href="showFriends">Contacts</a></li>
                     <li><a tabindex="-1" href="#">Add connection</a></li>
+                     <li><a tabindex="-1" href="findAlumini">Find Alumini</a></li>
                     </ul>
 
             </li>
@@ -162,7 +171,7 @@
             <li>
         
         
-                    <a href="../sign-in/sign-in.html" value="">Intrests</a>
+                    <a href="#" value="">Intrests</a>
 
 
                     <ul class="dropdown-menu 3rd" id="black-background" role="menu" aria-labelledby="dropdownMenu" >
@@ -224,23 +233,24 @@
 
                     <%= form_tag(controller: "search", action: "advanceSearch", method: "post" ,name:"search_form") do %>
             <label class="labels">Keywords</label>
-                <input id="fieldlength" type="text" value="" name=""></br>
+                <input id="fieldlength" type="text" value="" name="email"></br>
 
                 <label class="labels">First Name</label>
-                <input id="fieldlength" type="text" value="" name=""></br>
+                <input id="fieldlength" type="text" value="" name="first"></br>
                 
                 <label class="labels">Last Name</label>
-                <input id="fieldlength" type="text" value="" name=""></br>
+                <input id="fieldlength" type="text" value="" name="last"></br>
                 
                 <label class="labels">Title</label>
-                <input id="fieldlength" type="text" value="" name=""></br>
+                <input id="fieldlength" type="text" value="" name="title"></br>
 
                 <label class="labels">Company</label>
-                <input id="fieldlength" type="text" value="" name=""></br>
+                <input id="fieldlength" type="text" value="" name="company"></br>
 
                 <label class="labels">School</label>
-                <input id="fieldlength" type="text" value="" name=""></br>
+                <input id="fieldlength" type="text" value="" name="school"></br>
 
+ <label class="labels">Location</label>
                 <select name="countryCode" id="selectCountry">
                     <option value="us">United States</option>
                     <option value="af">Afghanistan</option>
@@ -266,7 +276,7 @@
 
 
 
-                    <input type="submit" value="Search" name="submit" class="shareButton"  id="floatl">
+                    <%= submit_tag("Search" , class: "shareButton" ) %>
 
             <%end%>
 
@@ -294,6 +304,7 @@
                 <h3>Advanced People Search</h3>
 
                 <a href="#" id="clo" value="">Close</a>
+                <img src="../images/Srch.png"></img>
 
         
 

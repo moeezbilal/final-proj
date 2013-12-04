@@ -11,6 +11,9 @@ Bootstrap::Application.routes.draw do
 
   get "home/index"
 
+#get "users/sign_up" 
+ get "sessions/new"
+
   # get "sign_in/index"
 
   # get "sign_in/changepassword"
@@ -22,6 +25,11 @@ Bootstrap::Application.routes.draw do
   get"home/countrylist"
 
   get "signup/index"
+
+get "search/share_post"
+
+
+
 
 get "experience/new"
 get "experience/imageloader"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131201073119) do
+ActiveRecord::Schema.define(:version => 20131126161405) do
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
@@ -23,7 +23,8 @@ ActiveRecord::Schema.define(:version => 20131201073119) do
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
     t.string   "commenterid"
-    t.string   "comment"
+    t.text     "comment"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -40,8 +41,6 @@ ActiveRecord::Schema.define(:version => 20131201073119) do
     t.datetime "updated_at"
   end
 
-  add_index "experiences", ["user_id"], :name => "index_experiences_on_user_id"
-
   create_table "feedbacks", :force => true do |t|
     t.string   "title"
     t.text     "body"
@@ -53,7 +52,7 @@ ActiveRecord::Schema.define(:version => 20131201073119) do
 
   create_table "friends", :force => true do |t|
     t.integer  "user_id"
-    t.string   "friend"
+    t.integer  "friend"
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -68,20 +67,21 @@ ActiveRecord::Schema.define(:version => 20131201073119) do
 
   create_table "notifications", :force => true do |t|
     t.integer  "user_id"
-    t.string   "sender"
-    t.string   "receiver"
+    t.integer  "sender"
+    t.integer  "receiver"
     t.boolean  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "posts", :force => true do |t|
-    t.string   "userid"
-    t.string   "text"
+    t.integer  "user_id"
+    t.text     "text"
     t.integer  "status"
+    t.string   "image"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "image"
   end
 
   create_table "user_roles", :force => true do |t|

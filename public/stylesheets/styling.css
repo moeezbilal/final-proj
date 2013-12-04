@@ -1224,7 +1224,7 @@ border:solid #ddd;
 border-width: 1px;
 
 border-radius: 10px;
-
+padding-bottom: 18px;
 }
 
 
@@ -1390,11 +1390,11 @@ input
 #scrn_1_more_6_characters
 {
 
-margin-left:124px;
+margin-left:128px;
 margin-top: -16px;
 font-size:11px;
 color:#666;
-margin-top: 0px;
+margin-top: -59px;
 }
 
 #directory
@@ -1413,7 +1413,7 @@ color:#666;
 {
 
 margin-left:124px;
-margin-top: -1px;
+margin-top: 49px;
 font-size:11px;
 color:#666;
 
@@ -1434,7 +1434,7 @@ color:#666;
 
 #scrn_1_btn
 {
-margin-left:124px;
+margin-left:133px;
 width:73px; 
 border:none;
 height:24px; 
@@ -1445,6 +1445,7 @@ border-top-right-radius: 2px;
 border-top-left-radius: 2px;
 border-bottom-right-radius:2px;
 border-bottom-left-radius:2px;
+margin-top: 28px;
 
 }
 
@@ -1632,6 +1633,7 @@ font-size:13px;
 color:#666;
     line-height: 0px;
 margin-bottom: 20px;
+margin-top: -139px;
 }
 
 
@@ -1699,7 +1701,7 @@ label
 
 #scrn_4_btn
 {
-margin-left:140px;
+margin-left:121px;
 width:97px; 
 border:none;
 height:23px; 
@@ -1707,6 +1709,7 @@ margin-top: 2px;
 margin-bottom: 4px;
 background-image: url("../images/join-btn.png");
 cursor: pointer;
+margin-top: 18px;
 }
 
 

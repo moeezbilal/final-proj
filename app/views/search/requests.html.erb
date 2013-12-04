@@ -1,26 +1,55 @@
 
+ 
+<div id="indexSearch">
 
-<div id="inside_body">
+
+<div class="inside_body">
+
+<div class="results_count">
 <p>
-<pre>
-<b><%= @count %></b> Requests Pending
-</pre>
+<b><%= current_user.notifications.size %></b> Friend requests for<b> 
+	<%= current_user.first_name %> 
+	<%=current_user.last_name %>
+</b>
 </p>
-
+</div>
 
 
 <table>
-  <% @requests.each do |request| %>
-    <tr>
-     <td><%= request.sender %></td>
-     <td><%= button_to "Accept" , :id => request.sender  ,:action => 'add_friend' %> </td>
+  <% current_user.notifications.each do |notification| %>
+
+  <div  class="result">  
+    <% @temp=User.find(:all, :conditions => ["id = ?",notification.sender])%>
+
+<%if @temp[0].image.length !=0 %>
+<%= image_tag @temp[0].image_url(:postpic).to_s , :class=>"floatL userPicture"%>
+<%else%>
+  <div class="floatL userPicture"></div>  
+<%end%>
+
+
+	</div>    
+  	<div class="floatL userName">
+
+    <%= @temp[0].first_name %> <%= @temp[0].last_name %>
+    </div>
+
+ 	 <%= button_to "Accept", {action: "add_friend", id:notification.sender, remote: true, :method => :post}, {class: 'connectButton'} %>
+
+
+   <div style="clear:both">
+
+
+
+
+</div>
+     
+	
     </tr>
     
     
 
   <% end %>
 </table>
-
-
 
 </div>

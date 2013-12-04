@@ -7,28 +7,36 @@
 
 
   <table>
-<% @user.each do |user| %>
+          
 
-    <div  class="addition" >  
-      <div class="floatL userName"><h3><%= user.experience.school %></h3></div>
-    </div>
+          <div id="contact_title"><%= @myobject.experience.school %></div>
+            
+          
 
    </tr>
 
-<% @school=user.experience.school %>   
-      <% end %>
 
+      
 
+<%@count=0%>
 
-    <% @users.each do |user| %>
+    <% @allusers.each do |user| %>
 
-   <% if user.experience.school==@school %>
+   <% if user.experience && user.experience.school==@myobject.experience.school %>
+    
+    <%@count=@count+1%>
+    
+    <div  class="addition alumni-work" >  
 
-    <div  class="addition" >  
+<%if user.image.length !=0 %>
+<%= image_tag user.image_url(:postpic).to_s , :class=>"floatL userPicture"%>
+<%else%>
+  <div class="floatL userPicture"></div>  
+<%end%>
 
-      <div class="floatL userPicture"></div>    
+      
 
-      <div class="floatL userName"><%= user.profile.firstName %> <%= user.profile.lastName %> &nbsp;&nbsp;&nbsp;</div>
+      <div class="floatL userName"><%= user.first_name %> <%= user.last_name %> &nbsp;&nbsp;&nbsp;</div>
 
       
 
@@ -44,6 +52,13 @@
 
     
       <% end %>
+
+      <% end %>
+
+
+      <% if @count ==0%>
+<div class=" userName">No Alumini found </div>
+
       <% end %>
 
 
