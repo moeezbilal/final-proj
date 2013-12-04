@@ -977,10 +977,10 @@ text-decoration: none;
 
  #user_comment{
         /*background: url("user.png") no-repeat scroll left center transparent;*/
-         background: url("../images/user_home.png") no-repeat scroll left center transparent;
+         background: url("../images/user_home1.png") no-repeat scroll left center transparent;
          
 
-padding: 2px;
+padding: 15px;
     }
 
     .comment_data
