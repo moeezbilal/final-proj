@@ -51,7 +51,7 @@ def search_results
 	 # change
 
 	 current_user.friends.each do |friend|
-	@allfriends=@allfriends+ User.find(:all, :conditions => ["email = ?", friend.friend]) 	
+	@allfriends=@allfriends+ User.find(:all, :conditions => ["id = ?", friend.friend]) 	
 	end
 	# change
 

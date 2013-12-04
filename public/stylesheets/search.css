@@ -1,22 +1,21 @@
 .add1 img
 {
-    /*background:url("../images/ads.png");
-    */margin-left: 876px;
+    margin-left: 64%;
     margin-top: 1px;
     position: relative;
     width:332px;
 }
 .add2 img
 {
-    /*background:url("../images/ads1.png");
-    */margin-left: 877px;
+    
+    margin-left: 64%;
     margin-top: 1px;
     position: relative;
     width:330px;
 }
 .people img
 {
-    margin-left: 875px;
+    margin-left: 64%;
 margin-top: 115px;
 width: 332px;
 position: relative;
