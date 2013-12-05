@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   has_many :friends
   has_many :notifications
   has_many :comments
+  has_many :accepts
   has_many :user_roles, :through => :authorizations
 
 

@@ -32,6 +32,8 @@ before_filter :authenticate_user! ,:user_signed_in?
 
 		@posts=@posts.sort { |x, y| y <=> x }
 		@notifications=Notification.find(:all,:conditions=>["user_id = ? AND status= ? ",current_user.id,1])
+				@accepts=Accept.find(:all, :conditions => ["user_id = ? AND status = ?", current_user.id ,1])
+
 	  end
 
 
@@ -44,21 +46,27 @@ def search_results
 		@user=User.find(:all, :conditions => ["email = ?",@id1])
 
 	# @users=User.all
-	 @users=User.find(:all,:conditions => ["first_name Like ? ",'%'+params[:search]+'%'])
+	 @users=User.find(:all,:conditions => ["first_name Like ? OR last_name Like ? ",'%'+params[:search]+'%','%'+params[:search]+'%'])
 
 	 @allfriends=@user
-
+ @notified=@user
 	 # change
 
 	 current_user.friends.each do |friend|
 	@allfriends=@allfriends+ User.find(:all, :conditions => ["id = ?", friend.friend]) 	
 	end
 	# change
+@already=Notification.find(:all, :conditions => ["sender = ?",current_user.id])
+
+	@already.each do |notification|
+
+		@notified=@notified+User.find(:all, :conditions => ["id = ?", notification.receiver]) 	
+
+	end
 
 
 
-
-	 @users=@users-@user-@allfriends
+	 @users=@users-@user-@allfriends-@notified
 
 	@count=@users.count
 
@@ -89,6 +97,12 @@ def search_results
 			notification.status=0
 
 		notification.save
+
+
+
+		 @notify=Accept.new( :user_id => @friendid.id , :friend => current_user.id ,:status => 1)
+
+		 @notify.save
 		
 		end
 
@@ -120,6 +134,8 @@ def search_results
 
 	  if @notify.save
 
+	redirect_to :action=>'index' 
+else	
 	redirect_to :action=>'index' 
 
 end
@@ -222,15 +238,19 @@ end
 
 def advanceSearch
 
-	@id1=current_user.email
-	@user=User.find(:all, :conditions => ["email = ?",@id1])
-
 	
+	@user=User.find(:all, :conditions => ["email = ?",current_user.email])
+
+	@allfriends=@user
+
+	@notified=@user
+
 	@user2=@user
 
 	@users=@user
 
-	if  params[:email].length > 0
+
+	if params[:email].length > 0
 	@users=@users+User.find(:all, :conditions => ["email Like ?",'%'+params[:email]+'%'])
 	end
 
@@ -243,19 +263,36 @@ def advanceSearch
 	end
 
 
-	# if params[:first].length > 0
-	# @users=@users+User.find(:all, :conditions => ["first_name Like ?",params[:first]])
-	# end
+	 if params[:title].length >0
+	 @users=@users+User.joins(:experience).where("job_title Like ?",'%'+params[:title]+'%')
+	  end
 
-	# if params[:first].length > 0
-	# @users=@users+User.find(:all, :conditions => ["first_name Like ?",params[:first]])
-	# end
+	 if params[:company].length > 0
+	 @users=@users+User.joins(:experience).where("company_name Like ?",'%'+params[:company]+'%')
+	 end
 
-	# if params[:first].length > 0
-	# @users=@users+User.find(:all, :conditions => ["first_name Like ?",params[:first]])
-	# end
+	 if params[:school].length > 0
+	 @users=@users+User.joins(:experience).where("school Like ?",'%'+params[:school]+'%')
+	 end
 
-	@users=@users-@user2
+	
+	current_user.friends.each do |friend|
+	@allfriends=@allfriends+ User.find(:all, :conditions => ["id = ?", friend.friend]) 	
+	end
+
+	@already=Notification.find(:all, :conditions => ["sender = ?",current_user.id])
+
+	@already.each do |notification|
+
+		@notified=@notified+User.find(:all, :conditions => ["id = ?", notification.receiver]) 	
+
+	end
+
+
+
+	@users=@users-@user2-@allfriends-@notified
+
+	@users = @users.uniq {|p| p.id}
 
 	@count=@users.count
 
@@ -339,7 +376,41 @@ end
 
 
 
+	def accept
+		
 
+@not=Accept.find(:all , :conditions => ["user_id = ? AND status = ?",current_user.id,1])
+
+
+if @not && @not.size==0
+	redirect_to :action=>'index'
+end
+
+
+
+
+		@user=User.find(:all, :conditions => ["email = ?",current_user.email])
+
+		@friends=@user
+		#change
+
+		@notice=Accept.find(:all , :conditions => ["user_id = ? AND status = ?",current_user.id,1])
+
+		@notice.each do |accept|
+
+			@friends=@friends + User.find(:all , :conditions => ["id = ?",accept.friend])
+
+		accept.status=0
+
+		accept.save
+
+		end
+
+
+		@friends=@friends-@user
+	
+
+	end
 
 
 end

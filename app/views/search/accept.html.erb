@@ -1,0 +1,67 @@
+
+ 
+<div id="indexSearch">
+
+
+<div class="inside_body">
+
+<div class="results_count">
+<p>
+<b><%= current_user.first_name %> 
+  <%=current_user.last_name %> <%= @friends.size %></b> People more is now in your connection<b> 
+	
+</b>
+</p>
+</div>
+
+
+<table>
+  <% @friends.each do |user| %>
+
+  <div  class="result">  
+<%if user.image.length !=0 %>
+<%= image_tag user.image_url(:postpic).to_s,:class=>"userPicture floatL"%>
+<%else%>
+  <div class="userPicture floatL">
+  </div>
+<%end%>  
+  	<div class="floatL userName">
+    <%= user.first_name %> 
+  <%= user.last_name %></br>
+  <% if user.experience %>
+      
+      <% if user.experience.status===1 %>
+      <div class="floatL userName"><%= user.experience.school %>&nbsp;&nbsp;&nbsp; </div>
+
+      <%else%>
+      <div class="floatL userName"><%= user.experience.company_name %>&nbsp;&nbsp;&nbsp; </div>
+      <% end %>
+
+
+
+      <div class=" userName"><%=user.experience.country %> </div>
+      
+
+      
+      <% end %>
+    </div>
+
+ 	 
+
+
+   <div style="clear:both">
+
+
+
+
+</div>
+     
+	
+    </tr>
+    
+    
+
+  <% end %>
+</table>
+
+</div>

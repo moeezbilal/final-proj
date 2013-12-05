@@ -28,8 +28,8 @@ Bootstrap::Application.routes.draw do
 
 get "search/share_post"
 
-
-
+get"search/accept"
+post"search/accept"
 
 get "experience/new"
 get "experience/imageloader"

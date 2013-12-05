@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131126161405) do
+ActiveRecord::Schema.define(:version => 20131204190721) do
+
+  create_table "accepts", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "friend"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
