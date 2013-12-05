@@ -151,7 +151,7 @@
 
         <p >
                 
-  <%= post.likes.size if post.likes.size > 0 %> 
+  
 
 
 
@@ -162,11 +162,21 @@
 
 
 <% if @not_liked ==0 %>
-<a href="#" value="" id="comment" class="comment_like">Like</a>
+<a href="#" value="" id="comment" class="comment_like"><%= post.likes.size if post.likes.size > 0 %> Like</a>
 <%else %>
 <%= link_to_if(@not_liked , "Like", {action: "like", id:post.id},{:class=>"comment_like"}) %>
 
 <%end%>
+
+<% @time=((post.created_at - Time.now).to_i.abs)%>
+<% @time1=@time/60 %>
+<% @time2=@time1/60 %>
+<% @time3=@time2/24 %>
+
+<% @t=@time.to_s+" sec(s)ago" %>
+<% @t=@time1.to_s+" min(s)ago" if @time1>0 %>
+<% @t=@time2.to_s+" hour(s)ago" if @time2>0 %>
+<% @t=@time3.to_s+" day(s) ago" if @time3>0 %>
 
  
               
@@ -174,7 +184,7 @@
               <%= link_to("Share", {action: "share_post", id:post.id},{:class=>"comment_like"}) %>
 
 
-            <%= ((post.created_at - Time.now).to_i.abs)/60%><a href="#" value="" id="comment" class="comment_like" > min ago</a>
+            <a href="#" value="" id="comment" class="comment_like" ><%= @t%> </a>
                </p>
 
        </ul>
